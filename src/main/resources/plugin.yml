@@ -1,0 +1,4 @@
+name: InventoryAPITest
+version: ${project.version}
+main: me.drison64.inventoryapitest.Main
+api-version: 1.16
