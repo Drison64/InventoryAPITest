@@ -1,10 +1,11 @@
 package me.drison64.inventoryapitest.Listeners;
 
+import me.drison64.inventoryapitest.Inventories.TestInventory;
 import me.drison64.inventoryapitest.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.Inventory;
 
 public class PlayerListener implements Listener {
 
@@ -16,8 +17,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        Inventory inventory = main.getTestInventory().build();
-        e.getPlayer().openInventory(inventory);
+        main.getInventoryManager().open(new TestInventory(Bukkit.getWorld("world").getBlockAt(0, 20, 0)), e.getPlayer());
     }
 
 }
